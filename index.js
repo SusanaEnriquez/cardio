@@ -37,6 +37,13 @@ console.log(`2) Give us an array of the inventor name and last names :`);
 
 // 3) Sort the inventors by birthdate, oldest to youngest
 console.log(`3) Sort the inventors by birthdate, oldest to youngest :`);
+// inventors.sort(a.year,b.year);
+// inventors.sort((a,b) => year);
+// inventors.sort((a,b) => a.year > b.year);
+// inventors.sort()
+inventors.sort((a,b) => a.year - b.year)
+console.log(inventors);
+
 
 // 4) How many years did all the inventors live?
 console.log(`4) How many years did all the inventors live ?`);
