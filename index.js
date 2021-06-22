@@ -14,19 +14,38 @@ const inventors = [
 ];
 
 // 1) Filter the list of inventors for those who were born in the 1500's
-console.log(
-  `1) Filter the list of inventors for those who were born in the 1500's :`
-);
+console.log(`1) Filter the list of inventors for those who were born in the 1500's :`);
+  var newInventors = [];
+  for (let i = 0; i < inventors.length; i++) {
+    const inventor = inventors[i];
+    if(inventor.year >= 1500 && inventor.year < 1600){
+      newInventors.push(inventor);
+    }
+  }
+  console.log(newInventors);  
+
 
 // 2) Give us an array of the inventor name and last names
 // ['Albert Einstein']
 console.log(`2) Give us an array of the inventor name and last names :`);
+  var names = [];
+  for (let i = 0; i < inventors.length; i++) {
+    const inventor = inventors[i];
+    names.push(inventor.name + " " + inventor.lastName);
+  }
+  console.log(names);  
 
 // 3) Sort the inventors by birthdate, oldest to youngest
 console.log(`3) Sort the inventors by birthdate, oldest to youngest :`);
 
 // 4) How many years did all the inventors live?
 console.log(`4) How many years did all the inventors live ?`);
+  var live = [];
+  for (let i = 0; i < inventors.length; i++) {
+    const inventor = inventors[i];
+    live.push(inventor.name + " " + inventor.lastName + ", lived:" + (inventor.passed-inventor.year))
+  }
+  console.log(live); 
 
 // 5)  is at least one person 19 ? true or false
 const people = [
@@ -36,9 +55,26 @@ const people = [
   { name: "Lux", year: 2015 },
 ];
 console.log(`5)  is at least one person 19 ? true or false`);
+  var onlyOne = false;  
+  for (let i = 0; i < people.length; i++) {
+      const p = people[i];
+      if(2021 - p.year == 19){
+        answer = true;
+      } 
+    }
+    console.log(onlyOne);
+  
 
 // 6) all are over 19 ? true or false
 console.log(`6) all are over 19 ? true or false`);
+  var all = false;  
+  for (let i = 0; i < people.length; i++) {
+      const p = people[i];
+      if(2021 - p.year >= 19){
+        answer = true;
+      } 
+    }
+    console.log(all);
 
 // 7) find and return the comment with the id of 823423
 const comments = [
@@ -50,3 +86,12 @@ const comments = [
 ];
 
 console.log(`7) find and return the comment with the id of 823423`);
+  function find(id)  {
+  for (let i = 0; i < comments.length; i++) {
+      const comment = comments[i];
+      if(comment.id === id ){
+        return(comment)
+      }
+    }
+  }
+  console.log(find(823423));
